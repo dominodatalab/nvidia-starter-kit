@@ -1,0 +1,250 @@
+schema: '1.0'
+name: ${NAME}
+version: 4.4.0
+hostname: ${HOSTNAME}
+pod_cidr: '0.0.0.0/0'
+ssl_enabled: true
+ssl_redirect: true
+request_resources: true
+enable_network_policies: true
+enable_pod_security_policies: true
+global_node_selectors:
+  dominodatalab.com/node-pool: default-gpu
+create_restricted_pod_security_policy: true
+kubernetes_distribution: cncf
+istio:
+  enabled: false
+  install: false
+  cni: true
+  namespace: istio-system
+namespaces:
+  platform:
+    name: domino-platform
+    annotations: {}
+    labels:
+      domino-platform: 'true'
+  compute:
+    name: domino-compute
+    annotations: {}
+    labels:
+      domino-compute: 'true'
+  system:
+    name: domino-system
+    annotations: {}
+    labels: {}
+ingress_controller:
+  create: true
+  gke_cluster_uuid: ''
+  class_name: nginx
+storage_classes:
+  block:
+    create: false
+    name: rook-ceph-block
+    type: hostpath
+    access_modes:
+    - ReadWriteOnce
+    base_path: '/domino'
+    default: false
+    parameters: {}
+  shared:
+    create: false
+    name: manual
+    type: hostpath
+    access_modes:
+    - ReadWriteMany
+    efs:
+      region: ''
+      filesystem_id: ''
+    nfs:
+      server: ''
+      mount_path: ''
+      mount_options: []
+    azure_file:
+      storage_account: ''
+blob_storage:
+  projects:
+    type: shared
+    s3:
+      region: ''
+      bucket: ''
+      sse_kms_key_id: ''
+      access_key_id: ''
+      secret_access_key: ''
+    azure:
+      account_name: ''
+      account_key: ''
+      container: ''
+    gcs:
+      bucket: ''
+      service_account_name: ''
+      project_name: ''
+  logs:
+    type: shared
+    s3:
+      region: ''
+      bucket: ''
+      sse_kms_key_id: ''
+      access_key_id: ''
+      secret_access_key: ''
+    azure:
+      account_name: ''
+      account_key: ''
+      container: ''
+    gcs:
+      bucket: ''
+      service_account_name: ''
+      project_name: ''
+  backups:
+    type: shared
+    s3:
+      region: ''
+      bucket: ''
+      sse_kms_key_id: ''
+      access_key_id: ''
+      secret_access_key: ''
+    azure:
+      account_name: ''
+      account_key: ''
+      container: ''
+    gcs:
+      bucket: ''
+      service_account_name: ''
+      project_name: ''
+  default:
+    type: shared
+    s3:
+      region: ''
+      bucket: ''
+      sse_kms_key_id: ''
+      access_key_id: ''
+      secret_access_key: ''
+    azure:
+      account_name: ''
+      account_key: ''
+      container: ''
+    gcs:
+      bucket: ''
+      service_account_name: ''
+      project_name: ''
+    enabled: false
+autoscaler:
+  enabled: false
+  cloud_provider: aws
+  auto_discovery:
+    cluster_name: domino
+    tags: []
+  groups:
+  - name: ''
+    min_size: 0
+    max_size: 0
+  aws:
+    region: ''
+  azure:
+    resource_group: ''
+    subscription_id: ''
+spotinst_controller:
+  enabled: false
+  token: ''
+  account: ''
+external_dns:
+  enabled: false
+  provider: aws
+  domain_filters: []
+  zone_id_filters: []
+git:
+  storage_class: rook-ceph-block
+email_notifications:
+  enabled: false
+  server: smtp.customer.org
+  port: 465
+  encryption: ssl
+  from_address: domino@customer.org
+  authentication:
+    username: ''
+    password: ''
+monitoring:
+  prometheus_metrics: false
+  newrelic:
+    apm: false
+    infrastructure: false
+    license_key: ''
+helm:
+  version: 3
+  host: ''
+  namespace: ''
+  insecure: false
+  username: ''
+  password: ''
+  tiller_image: ''
+  prefix: ''
+  cache_path: '/app/charts'
+private_docker_registry:
+  server: quay.io
+  username: '${QUAY_USERNAME}'
+  password: '${QUAY_PASSWORD}'
+internal_docker_registry:
+  s3_override:
+    region: ''
+    bucket: ''
+    sse_kms_key_id: ''
+    access_key_id: ''
+    secret_access_key: ''
+  gcs_override:
+    bucket: ''
+    service_account_name: ''
+    project_name: ''
+  azure_blobs_override:
+    account_name: ''
+    account_key: ''
+    container: ''
+telemetry:
+  intercom:
+    enabled: false
+  mixpanel:
+    enabled: false
+    token: ''
+gpu:
+  enabled: false
+fleetcommand:
+  enabled: false
+  api_token: ''
+services:
+  nginx_ingress:
+    chart_values:
+      controller:
+        extraArgs:
+          default-ssl-certificate: "default/crt1"
+  rabbitmq:
+    chart_values:
+      replicaCount: 1
+  mongodb:
+    chart_values:
+      replicas: 1
+  elasticsearch:
+    chart_values:
+      replicas: 1
+      minimumMasterNodes: 1
+  postgresql:
+    chart_values:
+      replication:
+        enabled: false
+  web_ui:
+    chart_values:
+      replicaCount: 1
+  keycloak:
+    chart_values:
+      replicas: 1
+  nucleus:
+    chart_values:
+      replicaCount:
+        frontend: 1
+      config:
+        nginx:
+          resolver: coredns.kube-system.svc.cluster.local ipv6=off
+teleport:
+  acm_arn: arn:aws:acm:<region>:<account>:certificate/<id>
+  enabled: false
+  hostname: teleport-domino.example.org
+  remote_access: false
+image_caching:
+  enabled: false

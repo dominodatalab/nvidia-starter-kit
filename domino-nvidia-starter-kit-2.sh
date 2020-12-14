@@ -36,7 +36,7 @@ sleep 2m
 
 sudo -u ubuntu ansible-playbook playbooks/nvidia-software/nvidia-mig.yml | tee /dev/tty | grep -q "failed=0"
 if [ $? -eq 0 ] ; then
-        cd ../domino-nvidia-starter-kit
+        cd ../nvidia-starter-kit
         cp -n domino-nvidia-starter-kit-boot.sh domino-nvidia-starter-kit-boot.sh_backup
         cat domino-nvidia-starter-kit-boot.sh_backup | sed -e "s@\${DIR}@$DIR@" > domino-nvidia-starter-kit-boot.sh
         

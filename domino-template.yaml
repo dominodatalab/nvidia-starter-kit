@@ -38,8 +38,8 @@ ingress_controller:
   class_name: nginx
 storage_classes:
   block:
-    create: false
-    name: rook-ceph-block
+    create: true
+    name: dominodisk
     type: hostpath
     access_modes:
     - ReadWriteOnce
@@ -49,7 +49,7 @@ storage_classes:
   shared:
     create: false
     name: manual
-    type: hostpath
+    type: nfs
     access_modes:
     - ReadWriteMany
     efs:
@@ -152,7 +152,7 @@ external_dns:
   domain_filters: []
   zone_id_filters: []
 git:
-  storage_class: rook-ceph-block
+  storage_class: dominodisk
 email_notifications:
   enabled: false
   server: smtp.customer.org

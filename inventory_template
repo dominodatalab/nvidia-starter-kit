@@ -1,0 +1,24 @@
+######
+# ALL NODES
+# NOTE: Use existing hostnames here, DeepOps will configure server hostnames to match these values
+######
+[all]
+local     ansible_host=127.0.0.1
+
+######
+# KUBERNETES
+######
+[kube-master]
+local
+
+# Odd number of nodes required
+[etcd]
+local
+
+# Also add mgmt/master nodes here if they will run non-control plane jobs
+[kube-node]
+local
+
+[k8s-cluster:children]
+kube-master
+kube-node

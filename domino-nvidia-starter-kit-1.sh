@@ -48,7 +48,7 @@ fi
 echo "Running the Kubernetes playbook..."
 ansible-playbook -l k8s-cluster playbooks/k8s-cluster.yml | tee /dev/tty | grep -q "msg: Running reboot with local connection would reboot the control node"
 if [ $? -eq 0 ] ; then
-        cd ../domino-nvidia-starter-kit
+        cd ../nvidia-starter-kit
         cp -n domino-nvidia-starter-kit-2.sh domino-nvidia-starter-kit-2.sh_backup
         cat domino-nvidia-starter-kit-2.sh_backup | sed -e "s@\=\${DIR}@\=$DIR@" > domino-nvidia-starter-kit-2.sh
 

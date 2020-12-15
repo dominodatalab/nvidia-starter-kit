@@ -23,7 +23,7 @@ Domino 4.3.3+ can then be installed from official release channels via the [flee
 <br />
 
 
-**Contents**
+### Contents
 
 * [Installation prerequisites](#installation-prerequisites)
 * [Kubernetes and dependency installation](#kubernetes-and-dependency-installation)

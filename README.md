@@ -19,7 +19,7 @@ Domino 4.3.3+ can then be installed from official release channels via the [flee
 ### How NOT to use Domino NVIDIA Starter Kit
 
 - Since Domino NVIDIA Starter Kit deployments have no redundancy or backups, they should not be treated as durable production data science platforms
-- Domino NVIDIA Starter Kit deployments can not currently be used to build multi-node clusters
+- Domino NVIDIA Starter Kit can not currently be used to build multi-node clusters
 
 <br />
 <br />

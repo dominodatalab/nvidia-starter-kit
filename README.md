@@ -1,6 +1,6 @@
 ## Domino NVIDIA Starter Kit
 
-Domino NVIDIA Starter Kit provides a fast and simple installation of Kubernetes, Domino, and all other dependencies on a single node for
+Domino NVIDIA Starter Kit provides a fast and simple installation of Kubernetes, [Domino](https://www.dominodatalab.com/), and all other dependencies on a single node for
 use in demos of Domino software on [DGX hardware](https://www.nvidia.com/en-us/data-center/dgx-systems/) with [Multi-Instance GPU A100 modules](https://www.nvidia.com/en-us/technologies/multi-instance-gpu/).
 
 For this project, we're using the [NVIDIA DeepOps](https://github.com/NVIDIA/deepops) tooling to install hardware

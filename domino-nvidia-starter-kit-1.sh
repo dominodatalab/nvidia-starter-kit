@@ -32,7 +32,7 @@ cat ansible.cfg_backup | sed '/^\[defaults\]$/a transport = local' > ansible.cfg
 
 echo "Replacing the default DeepOps playbook inventory file config/inventory with the local-only inventory..."
 cp -n config/inventory config/inventory_backup
-cp ../speedo/inventory_template config/inventory
+cp ../nvidia-starter-kit/inventory_template config/inventory
 
 echo "Updating the Multi-instance GPU (MIG) strategy to 'single' mode..."
 cp -n config/group_vars/k8s-cluster.yml config/group_vars/k8s-cluster.yml_backup

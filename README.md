@@ -80,7 +80,7 @@ Once this completes, you are ready to install Domino.
 
 Run this script with the arguments shown from the `nvidia-starter-kit` directory to install Domino 4.3.3 into the local node Kubernetes environment.
 
-`./install-domino.sh <HOSTNAME> <QUAY_USERNAME> <QUAY_PASSWORD>`
+`./install-domino.sh <FQDN_HOSTNAME> <QUAY_USERNAME> <QUAY_PASSWORD>`
 
 Once the installation completes, you can access Domino by creating DNS records (or /etc/hosts entries) that
 resolve the Domino FQDN to the IP address of your node. To get started, browse to a path of `/auth/`

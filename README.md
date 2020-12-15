@@ -14,7 +14,6 @@ Domino 4.3.3+ can then be installed from official release channels via the [flee
 ### How to use Domino NVIDIA Starter Kit
 
 - Quickly stand up Domino as an ML development and deployment layer on a single DGX machine
-- Demo Domino on a variety of DGX hardware
 - Demo Multi-Instance GPU capabilities on a machine with A100 Tensor Core modules, such as a p4.24xlarge EC2 instance
 
 ### How NOT to use Domino NVIDIA Starter Kit

@@ -57,7 +57,7 @@ Domino 4.3.3+ can then be installed from official release channels via the [flee
 
 - **Credentials**
 
-  In order to download Domino component images from quay.io release channels, you will need a username and password
+  In order to download Domino component images from [Quay.io](https://quay.io/) release channels, you will need a username and password
   provided by Domino. If you do not know your username and password, contact Domino at support@dominodatalab.com.
 
   Record these credentials. You'll need them when running the Domino software installer.

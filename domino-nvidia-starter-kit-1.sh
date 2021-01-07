@@ -19,7 +19,7 @@ sudo apt -y install python-pip
 echo "Cloning NVIDIA/deepops repository..."
 cd ..
 if [ ! -d "deepops" ] ; then
-        git clone https://github.com/NVIDIA/deepops.git
+        git clone --depth 1 --branch 20.12 https://github.com/NVIDIA/deepops.git 
 fi
 cd deepops
 

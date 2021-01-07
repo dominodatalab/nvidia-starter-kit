@@ -9,14 +9,14 @@ NAME="domino-nvidia-starter-kit"
 
 # generate certificate and install into cluster as TLS secret default/crt1
 kubectl get secrets | tee /dev/tty | grep -q "crt1"
-if [ $? -eq 0 ] ; then
+if [ $? -ne 0 ] ; then
         openssl req -x509 -nodes -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -subj "/CN=$HOSTNAME"
         kubectl create secret tls crt1 --key="key.pem" --cert="cert.pem"
 fi
 
 # create and label domino namespaces
 kubectl get ns | tee /dev/tty | grep -q "domino"
-if [ $? -eq 0 ] ; then
+if [ $? -ne 0 ] ; then
         kubectl create ns domino-platform
         kubectl label ns domino-platform domino-platform=true
         kubectl create ns domino-compute
@@ -38,7 +38,7 @@ sudo chmod -R 777 /domino/*
 
 # create manual hostpath PVs and PVCs for domino shared storage
 kubectl get pv | tee /dev/tty | grep -q "blob"
-if [ $? -eq 0 ] ; then
+if [ $? -ne 0 ] ; then
         kubectl apply -f domino-volumes.yaml
 fi
 

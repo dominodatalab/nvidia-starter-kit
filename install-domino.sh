@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -x
 
 HOSTNAME=$1
 QUAY_USERNAME=$2

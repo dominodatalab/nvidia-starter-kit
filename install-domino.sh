@@ -47,4 +47,4 @@ cat domino-template.yaml | sed -e "s/\${HOSTNAME}/$HOSTNAME/" | sed -e "s/\${NAM
 
 # install domino
 sudo docker login quay.io -u $QUAY_USERNAME -p $QUAY_PASSWORD
-sudo docker run --rm -v $(pwd):/install -v ~/.kube:/kube -e KUBECONFIG=/kube/config --network='host' quay.io/domino/fleetcommand-agent:latest run --file /install/domino.yaml
+sudo docker run --rm -v $(pwd):/install -v ~/.kube:/kube -e KUBECONFIG=/kube/config --network='host' quay.io/domino/fleetcommand-agent:v32 run --file /install/domino.yaml

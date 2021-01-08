@@ -15,6 +15,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 echo "Installing pip..."
 sudo apt update
 sudo apt -y install python-pip
+sudo apt install -y python-docker
 
 echo "Cloning NVIDIA/deepops repository..."
 cd ..

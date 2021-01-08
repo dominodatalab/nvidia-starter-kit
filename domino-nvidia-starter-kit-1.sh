@@ -16,6 +16,7 @@ echo "Installing pip..."
 sudo apt update
 sudo apt -y install python-pip
 sudo apt install -y python-docker
+sudo apt-get install -y pass gnupg2
 
 echo "Cloning NVIDIA/deepops repository..."
 cd ..

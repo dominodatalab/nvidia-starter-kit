@@ -1,6 +1,6 @@
 schema: '1.0'
 name: ${NAME}
-version: 4.4.0
+version: 4.3.3
 hostname: ${HOSTNAME}
 pod_cidr: '0.0.0.0/0'
 ssl_enabled: true
@@ -178,6 +178,8 @@ helm:
   tiller_image: ''
   prefix: ''
   cache_path: '/app/charts'
+  skip_daemonset_validation: false
+  daemonset_timeout: 300
 private_docker_registry:
   server: quay.io
   username: '${QUAY_USERNAME}'

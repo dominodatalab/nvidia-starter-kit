@@ -41,8 +41,8 @@ Domino 4.3.3+ can then be installed from official release channels via the [flee
 
   This process is only suitable for installing Domino on a **single NVIDIA GPU node**. The node should be running a
   DeepOps-compatible OS (Ubuntu 18.04 recommended) with Git installed, have [unencumbered access to Domino release
-  channels over the Internet](https://admin.dominodatalab.com/en/4.3.2/installation/install.html#requirements), and have at least one
-  [NVIDIA A100 Tensor Core GPU](https://www.nvidia.com/en-us/data-center/a100/) module installed.
+  channels over the Internet](https://admin.dominodatalab.com/en/4.3.2/installation/install.html#requirements), and have eight
+  [NVIDIA A100 Tensor Core GPU](https://www.nvidia.com/en-us/data-center/a100/) modules installed (other architectures coming soon).
 
   Record the IP address or hostname of this machine. You'll need it when configuring DNS for the Domino application.
 
